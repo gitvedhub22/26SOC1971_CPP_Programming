@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+class Employee
+{
+    int id;
+    float salary;
+
+public:
+
+    Employee()
+    {
+        id = 0;
+        salary = 0;
+    }
+
+    Employee(int i, float s)
+    {
+        id = i;
+        salary = s;
+    }
+
+    void display()
+    {
+        cout << "ID: " << id << endl;
+        cout << "Salary: " << salary << endl;
+    }
+};
+
+int main()
+{
+    Employee e1;
+    Employee e2(101, 30000);
+
+    cout << "Default Constructor:\n";
+    e1.display();
+
+    cout << "\nParameterized Constructor:\n";
+    e2.display();
+
+    return 0;
+}

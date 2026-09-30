@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+class Student
+{
+    int roll, m1, m2, m3, total;
+    float per;
+
+public:
+    void input()
+    {
+        cout << "Enter roll no: ";
+        cin >> roll;
+
+        cout << "Enter 3 marks: ";
+        cin >> m1 >> m2 >> m3;
+    }
+
+    void calculate()
+    {
+        total = m1 + m2 + m3;
+        per = total / 3.0;
+    }
+
+    void display()
+    {
+        cout << "\nRoll No: " << roll;
+        cout << "\nTotal: " << total;
+        cout << "\nPercentage: " << per << "%";
+
+        if (per >= 40)
+            cout << "\nResult: Pass";
+        else
+            cout << "\nResult: Fail";
+    }
+};
+
+int main()
+{
+    Student s;
+
+    s.input();
+    s.calculate();
+    s.display();
+
+    return 0;
+}

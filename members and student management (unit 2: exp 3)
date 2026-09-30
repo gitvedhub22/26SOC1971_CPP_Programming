@@ -1,0 +1,110 @@
+#include <iostream>
+using namespace std;
+
+// Static member
+class Student
+{
+    static int count;
+
+public:
+
+    Student()
+    {
+        count++;
+    }
+
+    static void show()
+    {
+        cout << "Number of objects: " << count << endl;
+    }
+};
+
+int Student::count = 0;
+
+
+// Friend function
+class B;
+
+class A
+{
+    int x;
+
+public:
+
+    A(int n)
+    {
+        x = n;
+    }
+
+    friend void compare(A, B);
+};
+
+class B
+{
+    int y;
+
+public:
+
+    B(int n)
+    {
+        y = n;
+    }
+
+    friend void compare(A, B);
+};
+
+void compare(A a, B b)
+{
+    if (a.x > b.y)
+        cout << "A is greater";
+    else if (b.y > a.x)
+        cout << "B is greater";
+    else
+        cout << "Both are equal";
+}
+
+
+// Friend class
+class Data
+{
+    int num;
+
+public:
+
+    Data(int n)
+    {
+        num = n;
+    }
+
+    friend class Display;
+};
+
+class Display
+{
+public:
+
+    void show(Data d)
+    {
+        cout << "\nPrivate number: " << d.num;
+    }
+};
+
+
+int main()
+{
+    Student s1, s2, s3;
+
+    Student::show();
+
+    A a(20);
+    B b(10);
+
+    compare(a, b);
+
+    Data d(50);
+
+    Display obj;
+    obj.show(d);
+
+    return 0;
+}

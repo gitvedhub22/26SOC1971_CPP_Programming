@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+class Book
+{
+    int id;
+    float price;
+
+public:
+
+    Book(int i, float p)
+    {
+        id = i;
+        price = p;
+    }
+
+    Book(Book &b)
+    {
+        id = b.id;
+        price = b.price;
+    }
+
+    void display()
+    {
+        cout << "Book ID: " << id << endl;
+        cout << "Price: " << price << endl;
+    }
+};
+
+int main()
+{
+    Book b1(101, 500);
+
+    Book b2(b1);
+
+    cout << "Original Book:\n";
+    b1.display();
+
+    cout << "\nCopied Book:\n";
+    b2.display();
+
+    return 0;
+}
